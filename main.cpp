@@ -12,11 +12,10 @@ RwReal* nearScreenZ = nullptr;
 RwReal* recipNearClip = nullptr;
 void (*SetScissorRect)(float*) = nullptr;
 
-// We use the pointer defined in RenderWare.cpp
-RwCamera* HookOf_RwCameraEndUpdate(RwCamera* camera)
+DECL_HOOKv(Render2DStuff)
 {
+    Render2DStuff();
     if (g_pMenu) g_pMenu->render();
-    return RwCameraEndUpdate(camera);
 }
 
 void OnTestCommand(const char* params)
@@ -46,13 +45,13 @@ extern "C" void OnModLoad()
     // Initialize RenderWare and ImGui
     InitRenderWareFunctions();
 
-    nearScreenZ = (RwReal*)aml->GetSym(pGameHandle, "_ZN11CCameraSize12nearScreenZE");
-    recipNearClip = (RwReal*)aml->GetSym(pGameHandle, "_ZN11CCameraSize13recipNearClipE");
+    // Use symbols from CSprite2d like in r4dx
+    nearScreenZ = (RwReal*)aml->GetSym(pGameHandle, "_ZN9CSprite2d11NearScreenZE");
+    recipNearClip = (RwReal*)aml->GetSym(pGameHandle, "_ZN9CSprite2d13RecipNearClipE");
     SetScissorRect = (void(*)(float*))aml->GetSym(pGameHandle, "_Z14SetScissorRectPf");
 
-    // Hook RwCameraEndUpdate using the existing pointer from RenderWare.cpp
-    aml->Hook((void*)aml->GetSym(pGameHandle, "_Z17RwCameraEndUpdateP8RwCamera"),
-             (void*)HookOf_RwCameraEndUpdate, (void**)&RwCameraEndUpdate);
+    // Hook Render2DStuff instead of RwCameraEndUpdate like in r4dx
+    HOOK(Render2DStuff, aml->GetSym(pGameHandle, "_Z13Render2dStuffv"));
 
     g_pMenu = new Menu();
     if (g_pMenu->initialize())
