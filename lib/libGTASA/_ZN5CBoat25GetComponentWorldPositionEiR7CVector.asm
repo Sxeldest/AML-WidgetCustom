@@ -1,0 +1,16 @@
+; =========================================================
+; Game Engine Function: _ZN5CBoat25GetComponentWorldPositionEiR7CVector
+; Address            : 0x56B1E4 - 0x56B204
+; =========================================================
+
+56B1E4:  PUSH            {R4,R6,R7,LR}
+56B1E6:  ADD             R7, SP, #8
+56B1E8:  ADD.W           R0, R0, R1,LSL#2
+56B1EC:  MOV             R4, R2
+56B1EE:  LDR.W           R0, [R0,#0x5C4]
+56B1F2:  BLX             j__Z13RwFrameGetLTMP7RwFrame; RwFrameGetLTM(RwFrame *)
+56B1F6:  VLDR            D16, [R0,#0x30]
+56B1FA:  LDR             R0, [R0,#0x38]
+56B1FC:  STR             R0, [R4,#8]
+56B1FE:  VSTR            D16, [R4]
+56B202:  POP             {R4,R6,R7,PC}

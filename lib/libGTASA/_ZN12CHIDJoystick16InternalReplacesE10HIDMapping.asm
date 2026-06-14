@@ -1,0 +1,94 @@
+; =========================================================
+; Game Engine Function: _ZN12CHIDJoystick16InternalReplacesE10HIDMapping
+; Address            : 0x28CDF8 - 0x28CE68
+; =========================================================
+
+28CDF8:  LDR             R2, =(_ZN6CCheat15m_bShowMappingsE_ptr - 0x28CDFE)
+28CDFA:  ADD             R2, PC; _ZN6CCheat15m_bShowMappingsE_ptr
+28CDFC:  LDR             R2, [R2]; CCheat::m_bShowMappings ...
+28CDFE:  LDRB            R2, [R2]; CCheat::m_bShowMappings
+28CE00:  CMP             R2, #0
+28CE02:  BNE.W           loc_28CE5E; jumptable 0028CE10 cases 12-15,17,22,34,35,40-45,50,56-59,62-65,71-79,83,84
+28CE06:  SUB.W           R2, R1, #0xC; switch 73 cases
+28CE0A:  CMP             R2, #0x48 ; 'H'
+28CE0C:  BHI.W           def_28CE10; jumptable 0028CE10 default case, cases 16,18-21,23-33,36-39,46-49,51-55,60,61,66-70,80-82
+28CE10:  TBB.W           [PC,R2]; switch jump
+28CE14:  DCB 0x25; jump table for switch statement
+28CE15:  DCB 0x25
+28CE16:  DCB 0x25
+28CE17:  DCB 0x25
+28CE18:  DCB 0x27
+28CE19:  DCB 0x25
+28CE1A:  DCB 0x27
+28CE1B:  DCB 0x27
+28CE1C:  DCB 0x27
+28CE1D:  DCB 0x27
+28CE1E:  DCB 0x25
+28CE1F:  DCB 0x27
+28CE20:  DCB 0x27
+28CE21:  DCB 0x27
+28CE22:  DCB 0x27
+28CE23:  DCB 0x27
+28CE24:  DCB 0x27
+28CE25:  DCB 0x27
+28CE26:  DCB 0x27
+28CE27:  DCB 0x27
+28CE28:  DCB 0x27
+28CE29:  DCB 0x27
+28CE2A:  DCB 0x25
+28CE2B:  DCB 0x25
+28CE2C:  DCB 0x27
+28CE2D:  DCB 0x27
+28CE2E:  DCB 0x27
+28CE2F:  DCB 0x27
+28CE30:  DCB 0x25
+28CE31:  DCB 0x25
+28CE32:  DCB 0x25
+28CE33:  DCB 0x25
+28CE34:  DCB 0x25
+28CE35:  DCB 0x25
+28CE36:  DCB 0x27
+28CE37:  DCB 0x27
+28CE38:  DCB 0x27
+28CE39:  DCB 0x27
+28CE3A:  DCB 0x25
+28CE3B:  DCB 0x27
+28CE3C:  DCB 0x27
+28CE3D:  DCB 0x27
+28CE3E:  DCB 0x27
+28CE3F:  DCB 0x27
+28CE40:  DCB 0x25
+28CE41:  DCB 0x25
+28CE42:  DCB 0x25
+28CE43:  DCB 0x25
+28CE44:  DCB 0x27
+28CE45:  DCB 0x27
+28CE46:  DCB 0x25
+28CE47:  DCB 0x25
+28CE48:  DCB 0x25
+28CE49:  DCB 0x25
+28CE4A:  DCB 0x27
+28CE4B:  DCB 0x27
+28CE4C:  DCB 0x27
+28CE4D:  DCB 0x27
+28CE4E:  DCB 0x27
+28CE4F:  DCB 0x25
+28CE50:  DCB 0x25
+28CE51:  DCB 0x25
+28CE52:  DCB 0x25
+28CE53:  DCB 0x25
+28CE54:  DCB 0x25
+28CE55:  DCB 0x25
+28CE56:  DCB 0x25
+28CE57:  DCB 0x25
+28CE58:  DCB 0x27
+28CE59:  DCB 0x27
+28CE5A:  DCB 0x27
+28CE5B:  DCB 0x25
+28CE5C:  DCB 0x25
+28CE5D:  ALIGN 2
+28CE5E:  MOVS            R0, #0; jumptable 0028CE10 cases 12-15,17,22,34,35,40-45,50,56-59,62-65,71-79,83,84
+28CE60:  BX              LR
+28CE62:  LDR             R2, [R0]; jumptable 0028CE10 default case, cases 16,18-21,23-33,36-39,46-49,51-55,60,61,66-70,80-82
+28CE64:  LDR             R2, [R2]
+28CE66:  BX              R2

@@ -1,0 +1,14 @@
+; =========================================================
+; Game Engine Function: _ZN21CAEVehicleAudioEntity7CopHeliEv
+; Address            : 0x3B48AC - 0x3B48C0
+; =========================================================
+
+3B48AC:  LDR             R0, [R0,#4]
+3B48AE:  LDRH            R0, [R0,#0x26]
+3B48B0:  SUBW            R0, R0, #0x1E7
+3B48B4:  UXTH            R1, R0
+3B48B6:  MOVS            R0, #0
+3B48B8:  CMP             R1, #2
+3B48BA:  IT CC
+3B48BC:  MOVCC           R0, #1
+3B48BE:  BX              LR

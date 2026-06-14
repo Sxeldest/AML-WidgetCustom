@@ -1,0 +1,17 @@
+; =========================================================
+; Game Engine Function: _Z32_rwPluginRegistryGetPluginOffsetPK16RwPluginRegistryj
+; Address            : 0x1E5F98 - 0x1E5FB2
+; =========================================================
+
+1E5F98:  LDR             R0, [R0,#0x10]
+1E5F9A:  CMP             R0, #0
+1E5F9C:  ITT EQ
+1E5F9E:  MOVEQ.W         R0, #0xFFFFFFFF
+1E5FA2:  BXEQ            LR
+1E5FA4:  LDR             R2, [R0,#8]
+1E5FA6:  CMP             R2, R1
+1E5FA8:  ITT EQ
+1E5FAA:  LDREQ           R0, [R0]
+1E5FAC:  BXEQ            LR
+1E5FAE:  LDR             R0, [R0,#0x30]
+1E5FB0:  B               loc_1E5F9A

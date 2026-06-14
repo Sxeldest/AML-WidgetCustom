@@ -1,0 +1,14 @@
+; =========================================================
+; Game Engine Function: _ZN10CSkidmarks8ShutdownEv
+; Address            : 0x5BE7B0 - 0x5BE7C4
+; =========================================================
+
+5BE7B0:  PUSH            {R4,R6,R7,LR}
+5BE7B2:  ADD             R7, SP, #8
+5BE7B4:  LDR             R4, =(dword_A5626C - 0x5BE7BA)
+5BE7B6:  ADD             R4, PC; dword_A5626C
+5BE7B8:  LDR             R0, [R4]
+5BE7BA:  BLX.W           j__Z16RwTextureDestroyP9RwTexture; RwTextureDestroy(RwTexture *)
+5BE7BE:  MOVS            R0, #0
+5BE7C0:  STR             R0, [R4]
+5BE7C2:  POP             {R4,R6,R7,PC}

@@ -1,0 +1,18 @@
+; =========================================================
+; Game Engine Function: _ZN6CTrainD2Ev
+; Address            : 0x57C704 - 0x57C726
+; =========================================================
+
+57C704:  PUSH            {R4,R6,R7,LR}
+57C706:  ADD             R7, SP, #8
+57C708:  MOV             R4, R0
+57C70A:  LDR             R0, =(_ZTV6CTrain_ptr - 0x57C710)
+57C70C:  ADD             R0, PC; _ZTV6CTrain_ptr
+57C70E:  LDR             R0, [R0]; `vtable for'CTrain ...
+57C710:  ADDS            R0, #8
+57C712:  STR             R0, [R4]
+57C714:  ADD.W           R0, R4, #0x13C; this
+57C718:  BLX             j__ZN21CAEVehicleAudioEntity9TerminateEv; CAEVehicleAudioEntity::Terminate(void)
+57C71C:  MOV             R0, R4; this
+57C71E:  POP.W           {R4,R6,R7,LR}
+57C722:  B.W             sub_195C7C

@@ -1,0 +1,16 @@
+; =========================================================
+; Game Engine Function: _ZN8CVehicle30ReleasePickedUpEntityWithWinchEv
+; Address            : 0x58D5E8 - 0x58D608
+; =========================================================
+
+58D5E8:  PUSH            {R7,LR}
+58D5EA:  MOV             R7, SP
+58D5EC:  ADDS            R0, #0x1D; this
+58D5EE:  BLX             j__ZN6CRopes8FindRopeEj; CRopes::FindRope(uint)
+58D5F2:  LDR             R1, =(_ZN6CRopes6aRopesE_ptr - 0x58D5FC)
+58D5F4:  MOV.W           R2, #0x328
+58D5F8:  ADD             R1, PC; _ZN6CRopes6aRopesE_ptr
+58D5FA:  LDR             R1, [R1]; CRopes::aRopes ...
+58D5FC:  MLA.W           R0, R0, R2, R1; this
+58D600:  POP.W           {R7,LR}
+58D604:  B.W             sub_19666C
