@@ -1,5 +1,4 @@
 #include "Command.h"
-#include "Settings.h"
 #include <mod/amlmod.h>
 #include <mod/logger.h>
 #include <string.h>
